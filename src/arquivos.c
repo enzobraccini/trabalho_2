@@ -55,7 +55,6 @@ void carregar_dados_aeronave(NoAeronave_t **inicio)
             break;
         }
 
-        // tenta ler
         if (fread(novo, sizeof(NoAeronave_t), 1, fp) != 1) {
             free(novo);
             break;
