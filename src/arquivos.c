@@ -44,24 +44,26 @@ void carregar_dados_aeronave(NoAeronave_t **inicio)
 {
     FILE *fp = fopen("aeronaves.bin", "rb");
     if (!fp) {
-        printf("Erro ao tentar abrir arquivo aeronaves.bin\n");
+        printf("Erro ao abrir aeronaves.bin\n");
         return;
     }
 
-    NoAeronave_t temp;   // buffer temporário
-    while (fread(&temp, sizeof(NoAeronave_t), 1, fp) == 1) {
-
+    while (1) {
         NoAeronave_t *novo = malloc(sizeof(NoAeronave_t));
         if (!novo) {
             printf("Erro ao alocar memória!\n");
-            fclose(fp);
-            return;
+            break;
         }
 
-        *novo = temp;         // copia dados lidos
-        novo->proximo = NULL; // reset do ponteiro
+        // tenta ler
+        if (fread(novo, sizeof(NoAeronave_t), 1, fp) != 1) {
+            free(novo);
+            break;
+        }
 
-        // INSERE NA LISTA (sem usar cadastrar_aeronave)
+        novo->proximo = NULL;
+
+
         if (*inicio == NULL) {
             *inicio = novo;
         } else {
@@ -79,24 +81,24 @@ void carregar_dados_rotas(NoRota_t **inicio)
 {
     FILE *fp = fopen("rotas.bin", "rb");
     if (!fp) {
-        printf("Erro ao tentar abrir arquivo rotas.bin\n");
+        printf("Erro ao abrir rotas.bin\n");
         return;
     }
 
-    NoRota_t temp;  // buffer temporário
-    while (fread(&temp, sizeof(NoRota_t), 1, fp) == 1) {
-
+    while (1) {
         NoRota_t *novo = malloc(sizeof(NoRota_t));
         if (!novo) {
             printf("Erro ao alocar memória!\n");
-            fclose(fp);
-            return;
+            break;
         }
 
-        *novo = temp;
+        if (fread(novo, sizeof(NoRota_t), 1, fp) != 1) {
+            free(novo);
+            break;
+        }
+
         novo->proximo = NULL;
 
-        // INSERE NA LISTA
         if (*inicio == NULL) {
             *inicio = novo;
         } else {
