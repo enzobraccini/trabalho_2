@@ -4,6 +4,7 @@
 #include "./include/relatorios.h"
 #include "./include/types.h"
 #include "./include/uteis.h"
+#include "./include/arquivos.h"
 
 
 int main()
@@ -12,6 +13,9 @@ int main()
     NoRota_t *nova_rota = NULL;
 
     int opcao;
+
+        carregar_dados_aeronave(&nova_aeronave);
+        carregar_dados_rotas(&nova_rota);
 
     do {
         exibir_menu();
@@ -57,6 +61,8 @@ int main()
             case 0: printf("Encerrando o programa...\n");
                     liberar_lista_aeronaves(nova_aeronave);
                     liberar_lista_rotas(nova_rota);
+                    salvar_dados_aeronave(nova_rota);
+                    salvar_dados_rotas(nova_rota);
                     break;
             default: printf("Opcao invalida!\n");
         }
