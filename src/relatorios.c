@@ -19,9 +19,9 @@ void relatorio_aeronaves(NoAeronave_t *nova_aeronave)
     while(atual != NULL) {
         printf("--- Aeronave #%d ---\n", ++contador);
         printf("ID....................: %i\n", atual->dados_aeronave.id);
-        printf("Modelo................: %s", atual->dados_aeronave.modelo);
-        printf("Fabricante............: %s", atual->dados_aeronave.fabricante);
-        printf("Prefixo...............: %s", atual->dados_aeronave.prefixo);
+        printf("Modelo................: %s\n", atual->dados_aeronave.modelo);
+        printf("Fabricante............: %s\n", atual->dados_aeronave.fabricante);
+        printf("Prefixo...............: %s\n", atual->dados_aeronave.prefixo);
         printf("Ano de fabricacao.....: %i\n", atual->dados_aeronave.ano_de_fabricacao);
         if(atual->dados_aeronave.tipo == 1) {
             printf("Tipo..................: Carga\n");
@@ -41,10 +41,10 @@ void relatorio_aeronaves(NoAeronave_t *nova_aeronave)
         printf("Quantidade de membros.: %i\n", atual->dados_tripulacao.qtd_membros);
         
         for(int k = 0; k < atual->dados_tripulacao.qtd_pilotos && k < 10; k++) {
-             printf(" Piloto %d: %s", k + 1, atual->dados_tripulacao.nome_pilotos[k]);
+             printf(" Piloto %d: %s\n", k + 1, atual->dados_tripulacao.nome_pilotos[k]);
         }
         for(int k = 0; k < atual->dados_tripulacao.qtd_membros && k < 20; k++) {
-             printf(" Membro %d: %s", k + 1, atual->dados_tripulacao.nome_membros[k]);
+             printf(" Membro %d: %s\n", k + 1, atual->dados_tripulacao.nome_membros[k]);
         }
         
         printf("\n");
@@ -66,7 +66,7 @@ void buscar_aeronave_prefixo(NoAeronave_t *nova_aeronave)
         if (strcmp(prefixo_busca, atual->dados_aeronave.prefixo) == 0) {
             printf("\nAeronave encontrada.\n");
             printf("ID.........: %i\n", atual->dados_aeronave.id);
-            printf("Modelo.....: %s", atual->dados_aeronave.modelo);
+            printf("Modelo.....: %s\n", atual->dados_aeronave.modelo);
             printf("Fabricante.: %s\n", atual->dados_aeronave.fabricante);
             encontrada = 1;
             break;
@@ -89,12 +89,12 @@ void listar_aeronave_fabricante(NoAeronave_t *nova_aeronave)
     getchar();
     fgets(fabricante_busca, MAX_AERONAVES, stdin);
 
-    printf("\n--- AERONAVES DO FABRICANTE %s ---\n", fabricante_busca);
+    printf("\n--- AERONAVES DO FABRICANTE %s\n ---\n", fabricante_busca);
 
     while (atual != NULL) {
         if (strcmp(fabricante_busca, atual->dados_aeronave.fabricante) == 0) {
             printf("ID...............: %i\n", atual->dados_aeronave.id);
-            printf("Modelo...........: %s", atual->dados_aeronave.modelo);
+            printf("Modelo...........: %s\n", atual->dados_aeronave.modelo);
             printf("Ano de fabricacao: %i\n\n", atual->dados_aeronave.ano_de_fabricacao);
             encontrada = 1;
         }
@@ -122,7 +122,7 @@ void listar_aeronave_tipo(NoAeronave_t *nova_aeronave)
     while(atual != NULL)
     {
         if(atual->dados_aeronave.tipo == 1) {
-            printf("ID: %d | Prefixo: %s", atual->dados_aeronave.id, atual->dados_aeronave.prefixo);
+            printf("ID: %d | Prefixo: %s\n", atual->dados_aeronave.id, atual->dados_aeronave.prefixo);
             carga_contador++;
         }
         atual = atual->proximo;
@@ -137,7 +137,7 @@ void listar_aeronave_tipo(NoAeronave_t *nova_aeronave)
     while(atual != NULL)
     {
         if(atual->dados_aeronave.tipo == 2){
-            printf("ID: %d | Prefixo: %s | Assentos: %d\n", atual->dados_aeronave.id, atual->dados_aeronave.prefixo, atual->dados_aeronave.numero_passageiros);
+            printf("ID: %d | Prefixo: %s\n | Assentos: %d\n", atual->dados_aeronave.id, atual->dados_aeronave.prefixo, atual->dados_aeronave.numero_passageiros);
             passageiro_contador++;
         }
         atual = atual->proximo;
@@ -158,12 +158,12 @@ void listar_aeronave_modelo(NoAeronave_t *nova_aeronave)
     getchar();
     fgets(modelo_busca, MAX_AERONAVES, stdin);
 
-    printf("\n--- AERONAVES DO MODELO %s ---\n", modelo_busca);
+    printf("\n--- AERONAVES DO MODELO %s\n ---\n", modelo_busca);
 
     while (atual != NULL) {
         if (strcmp(modelo_busca, atual->dados_aeronave.modelo) == 0) {
             printf("ID.........: %i\n", atual->dados_aeronave.id);
-            printf("Modelo.....: %s", atual->dados_aeronave.modelo);
+            printf("Modelo.....: %s\n", atual->dados_aeronave.modelo);
             printf("Fabricante.: %s\n", atual->dados_aeronave.fabricante);
             encontrada = 1;
         }
@@ -193,7 +193,7 @@ void listar_aeronave_ano_fabricacao(NoAeronave_t *nova_aeronave)
     {
         if(ano_busca == atual->dados_aeronave.ano_de_fabricacao){
             printf("ID.........: %i\n", atual->dados_aeronave.id);
-            printf("Modelo.....: %s", atual->dados_aeronave.modelo);
+            printf("Modelo.....: %s\n", atual->dados_aeronave.modelo);
             printf("Fabricante.: %s\n", atual->dados_aeronave.fabricante);
             encontrada = 1;
         }
@@ -221,7 +221,7 @@ void listar_aeronave_situacao(NoAeronave_t *nova_aeronave)
     while(atual != NULL)
     {
         if(atual->dados_aeronave.situacao == 1) {
-            printf("ID: %d | Prefixo: %s", atual->dados_aeronave.id, atual->dados_aeronave.prefixo);
+            printf("ID: %d | Prefixo: %s\n", atual->dados_aeronave.id, atual->dados_aeronave.prefixo);
             operante_contador++;
         }
         atual = atual->proximo;
@@ -236,7 +236,7 @@ void listar_aeronave_situacao(NoAeronave_t *nova_aeronave)
     while(atual != NULL)
     {
         if(atual->dados_aeronave.situacao == 2){
-            printf("ID: %d | Prefixo: %s", atual->dados_aeronave.id, atual->dados_aeronave.prefixo);
+            printf("ID: %d | Prefixo: %s\n", atual->dados_aeronave.id, atual->dados_aeronave.prefixo);
             manutencao_contador++;
         }
         atual = atual->proximo;
@@ -294,8 +294,8 @@ void consultar_rota_data(NoRota_t *nova_rota)
         {
             printf("Codigo da rota........: %i\n", atual->dados_rota.codigo);
             printf("Horario da rota.......: %d:%d\n", atual->dados_rota.horario.hora, atual->dados_rota.horario.minuto);
-            printf("Local de partida......: %s", atual->dados_rota.origem);
-            printf("Local de destino......: %s", atual->dados_rota.destino);
+            printf("Local de partida......: %s\n", atual->dados_rota.origem);
+            printf("Local de destino......: %s\n", atual->dados_rota.destino);
             printf("Tempo estimado........: %d:%d\n", atual->dados_rota.tempo_estimado.hora, atual->dados_rota.tempo_estimado.minuto);
             printf("Combustivel necessario: %f Litros\n", atual->dados_rota.combustivel_necessario);
             printf("Aeronave ID...........: %i\n\n", atual->dados_rota.id_aeronave_voo);
@@ -319,7 +319,7 @@ void listar_rota_origem(NoRota_t *nova_rota)
     getchar();
     fgets(rota_origem, MAX_ROTAS, stdin);
 
-    printf("\nROTAS COM ORIGEM EM %s \n", rota_origem);
+    printf("\nROTAS COM ORIGEM EM %s \n\n", rota_origem);
 
     while(atual != NULL)
     {
@@ -327,7 +327,7 @@ void listar_rota_origem(NoRota_t *nova_rota)
             printf("Codigo da rota........: %i\n", atual->dados_rota.codigo);
             printf("Data da rota..........: %d/%d/%d\n", atual->dados_rota.data.dia, atual->dados_rota.data.mes, atual->dados_rota.data.ano);
             printf("Horario da rota.......: %d:%d\n", atual->dados_rota.horario.hora, atual->dados_rota.horario.minuto);
-            printf("Local de destino......: %s", atual->dados_rota.destino);
+            printf("Local de destino......: %s\n", atual->dados_rota.destino);
             printf("Tempo estimado........: %d:%d\n\n", atual->dados_rota.tempo_estimado.hora, atual->dados_rota.tempo_estimado.minuto);
             encontrada = 1;
         }
@@ -357,7 +357,7 @@ void listar_rota_destino(NoRota_t *nova_rota)
             printf("Codigo da rota........: %i\n", atual->dados_rota.codigo);
             printf("Data da rota..........: %d/%d/%d\n", atual->dados_rota.data.dia, atual->dados_rota.data.mes, atual->dados_rota.data.ano);
             printf("Horario da rota.......: %d:%d\n", atual->dados_rota.horario.hora, atual->dados_rota.horario.minuto);
-            printf("Local de partida......: %s", atual->dados_rota.origem);
+            printf("Local de partida......: %s\n", atual->dados_rota.origem);
             printf("Tempo estimado........: %d:%d\n\n", atual->dados_rota.tempo_estimado.hora, atual->dados_rota.tempo_estimado.minuto);
             encontrada = 1;
         }
@@ -500,8 +500,8 @@ void rota_mais_passageiros(NoRota_t *nova_rota)
         printf("\n--- ROTA COM MAIS PASSAGEIROS ---\n");
         printf("Codigo da rota...........: %i\n", mais_passageiros_no->dados_rota.codigo);
         printf("Data.....................: %d/%d/%d\n", mais_passageiros_no->dados_rota.data.dia, mais_passageiros_no->dados_rota.data.mes, mais_passageiros_no->dados_rota.data.ano);
-        printf("Origem...................: %s", mais_passageiros_no->dados_rota.origem);
-        printf("Destino..................: %s", mais_passageiros_no->dados_rota.destino);
+        printf("Origem...................: %s\n", mais_passageiros_no->dados_rota.origem);
+        printf("Destino..................: %s\n", mais_passageiros_no->dados_rota.destino);
         printf("Quantidade de passageiros: %i\n", mais_passageiros_no->dados_rota.qtd_passageiros);
         printf("Aeronave ID..............: %i\n\n", mais_passageiros_no->dados_rota.id_aeronave_voo);
     }
@@ -534,8 +534,8 @@ void rota_menos_passageiros(NoRota_t *nova_rota)
         printf("\n--- ROTA COM MENOS PASSAGEIROS ---\n");
         printf("Codigo da Rota...........: %i\n", menos_passageiros_no->dados_rota.codigo);
         printf("Data.....................: %d/%d/%d\n", menos_passageiros_no->dados_rota.data.dia, menos_passageiros_no->dados_rota.data.mes, menos_passageiros_no->dados_rota.data.ano);
-        printf("Origem...................: %s", menos_passageiros_no->dados_rota.origem);
-        printf("Destino..................: %s", menos_passageiros_no->dados_rota.destino);
+        printf("Origem...................: %s\n", menos_passageiros_no->dados_rota.origem);
+        printf("Destino..................: %s\n", menos_passageiros_no->dados_rota.destino);
         printf("Quantidade de Passageiros: %i\n", menos_passageiros_no->dados_rota.qtd_passageiros);
         printf("Aeronave ID..............: %i\n\n", menos_passageiros_no->dados_rota.id_aeronave_voo);
     }

@@ -155,8 +155,8 @@ void exportar_dados_aviao_html(NoAeronave_t *aviao, char *nome_arq)
         return;
     }
 
-    fprintf(fp, "<html><head><title>Relatório de Aeronaves</title></head><body>\n");
-    fprintf(fp, "<h2>Relatório de Aeronaves</h2>\n");
+    fprintf(fp, "<html><head><title>Relatorio de Aeronaves</title></head><body>\n");
+    fprintf(fp, "<h2>Relatorio de Aeronaves</h2>\n");
     fprintf(fp, "<table border='1'>\n");
     fprintf(fp, "<tr><th>ID</th><th>Modelo</th><th>Fabricante</th><th>Prefixo</th></tr>\n");
 
@@ -210,8 +210,8 @@ void exportar_dados_rota_html(NoRota_t *rota, char *nome_arq)
         return;
     }
 
-    fprintf(fp, "<html><head><title>Relatório de Rotas</title></head><body>\n");
-    fprintf(fp, "<h2>Relatório de Rotas</h2>\n");
+    fprintf(fp, "<html><head><title>Relatorio de Rotas</title></head><body>\n");
+    fprintf(fp, "<h2>Relatorio de Rotas</h2>\n");
     fprintf(fp, "<table border='1'>\n");
 
     fprintf(fp,

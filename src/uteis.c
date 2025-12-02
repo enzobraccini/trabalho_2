@@ -2,6 +2,7 @@
 #include "../include/types.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 int contar_aeronaves(NoAeronave_t *nova) {
     int contador = 0;
@@ -68,4 +69,9 @@ void mostrar_dados_rota(rota_t *rota, FILE *fp)
     fprintf(fp, "quantidade de carga.....: %i\n", rota->qtd_carga);
     fprintf(fp, "ID da aeronave..........: %i\n", rota->id_aeronave_voo);
 
+}
+
+void retirar_enter(char *str)
+{
+    *(str+strlen(str)-1) = '\0';
 }

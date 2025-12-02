@@ -10,5 +10,6 @@ void liberar_lista_aeronaves(NoAeronave_t *nova);
 void liberar_lista_rotas(NoRota_t *nova);
 void mostrar_dados_aeronave(aeronave_t *aviao, FILE *fp);
 void mostrar_dados_rota(rota_t *rota, FILE *fp);
+void retirar_enter(char *str);
 
 #endif

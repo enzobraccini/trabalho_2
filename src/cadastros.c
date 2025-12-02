@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "../include/types.h"
 #include "../include/cadastros.h"
+#include "../include/uteis.h"
 
 int cadastrar_aeronave(NoAeronave_t **nova_aeronave)
 {
@@ -19,12 +20,15 @@ int cadastrar_aeronave(NoAeronave_t **nova_aeronave)
 
     printf("Digite o modelo: \n");
     fgets(novo_no->dados_aeronave.modelo, MAX_AERONAVES, stdin);
+    retirar_enter(novo_no->dados_aeronave.modelo);
 
     printf("Digite o fabricante: \n");
     fgets(novo_no->dados_aeronave.fabricante, MAX_AERONAVES, stdin);
+    retirar_enter(novo_no->dados_aeronave.fabricante);
 
     printf("Digite o prefixo: \n");
     fgets(novo_no->dados_aeronave.prefixo, MAX_AERONAVES, stdin);
+    retirar_enter(novo_no->dados_aeronave.prefixo);
 
     printf("Digite o ano de fabricacao: \n");
     scanf("%i", &novo_no->dados_aeronave.ano_de_fabricacao);
@@ -72,6 +76,7 @@ int cadastrar_aeronave(NoAeronave_t **nova_aeronave)
         {
             printf("Piloto %d: ", k + 1);
             fgets(novo_no->dados_tripulacao.nome_pilotos[k], MAX_ROTAS, stdin);
+            retirar_enter(novo_no->dados_tripulacao.nome_pilotos[k]);
         }
     }
 
@@ -81,6 +86,7 @@ int cadastrar_aeronave(NoAeronave_t **nova_aeronave)
         {
             printf("Membro %d: ", k + 1);
             fgets(novo_no->dados_tripulacao.nome_membros[k], MAX_ROTAS, stdin);
+            retirar_enter(novo_no->dados_tripulacao.nome_membros[k]);
         }
     }
 
@@ -115,9 +121,11 @@ int cadastrar_rota(NoRota_t **nova_rota, NoAeronave_t *nova_aeronave)
 
     printf("Digite o local de partida da rota:\n ");
     fgets(novo_no->dados_rota.origem, MAX_ROTAS, stdin);
+    retirar_enter(novo_no->dados_rota.origem);
 
     printf("Digite o local de destino da rota:\n ");
     fgets(novo_no->dados_rota.destino, MAX_ROTAS, stdin);
+    retirar_enter(novo_no->dados_rota.destino);
 
     printf("Digite o tempo estimado da rota: 'Exemplo 00:00'\n ");
     scanf("%d:%d", &novo_no->dados_rota.tempo_estimado.hora, &novo_no->dados_rota.tempo_estimado.minuto);
