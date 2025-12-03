@@ -75,9 +75,3 @@ void retirar_enter(char *str)
 {
     *(str+strlen(str)-1) = '\0';
 }
-
-void limpar_buffer()
-{
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF);
-}

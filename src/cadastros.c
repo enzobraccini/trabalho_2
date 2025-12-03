@@ -16,7 +16,7 @@ int cadastrar_aeronave(NoAeronave_t **nova_aeronave)
 
     printf("Digite o ID: \n");
     scanf("%i", &novo_no->dados_aeronave.id);
-    limpar_buffer();
+    getchar();
 
     printf("Digite o modelo: \n");
     fgets(novo_no->dados_aeronave.modelo, MAX_AERONAVES, stdin);
@@ -32,12 +32,12 @@ int cadastrar_aeronave(NoAeronave_t **nova_aeronave)
 
     printf("Digite o ano de fabricacao: \n");
     scanf("%i", &novo_no->dados_aeronave.ano_de_fabricacao);
-    limpar_buffer();
+    getchar();
 
     printf("Digite se a aeronave eh, 1 = carga | 2 = passageiro \n");
     while(i == 0) {
         scanf("%i", &novo_no->dados_aeronave.tipo);
-        limpar_buffer();
+        getchar();
 
         if(novo_no->dados_aeronave.tipo == 1) {
             novo_no->dados_aeronave.numero_passageiros = 0;
@@ -45,7 +45,7 @@ int cadastrar_aeronave(NoAeronave_t **nova_aeronave)
         } else if(novo_no->dados_aeronave.tipo == 2) {
             printf("Digite o numero de passageiros: \n");
             scanf("%i", &novo_no->dados_aeronave.numero_passageiros);
-            limpar_buffer();
+            getchar();
             i = 1;
         } else {
             printf("Opcao invalida!!! Tente novamente.\n");
@@ -55,7 +55,7 @@ int cadastrar_aeronave(NoAeronave_t **nova_aeronave)
     printf("Digite a condicao da aeronave, 1 = operante | 2 = manutencao \n");
     while( j == 0) {
         scanf("%i", &novo_no->dados_aeronave.situacao);
-        limpar_buffer();
+        getchar();
 
         if (novo_no->dados_aeronave.situacao == 1 || novo_no->dados_aeronave.situacao == 2){
             j = 1;
@@ -66,15 +66,15 @@ int cadastrar_aeronave(NoAeronave_t **nova_aeronave)
 
     printf("Digite quantas vezes a aeronave entrou em manutencao \n");
     scanf("%i", &novo_no->dados_aeronave.quantidade_manutencao);
-    limpar_buffer();
+    getchar();
 
     printf("Digite a quantidade de pilotos: \n");
     scanf("%i", &novo_no->dados_tripulacao.qtd_pilotos);
-    limpar_buffer();
+    getchar();
 
     printf("Digite a quantidade de membros da comissaria: \n");
     scanf("%i", &novo_no->dados_tripulacao.qtd_membros);
-    limpar_buffer();
+    getchar();
 
     if (novo_no->dados_tripulacao.qtd_pilotos > 0) {
         printf("Digite o nome dos %d pilotos (um por linha):\n", novo_no->dados_tripulacao.qtd_pilotos);
@@ -115,15 +115,15 @@ int cadastrar_rota(NoRota_t **nova_rota, NoAeronave_t *nova_aeronave)
 
     printf("Digite o codigo da rota: \n ");
     scanf("%i", &novo_no->dados_rota.codigo);
-    limpar_buffer();
+    getchar();
 
     printf("Digite a data da Rota: 'Exemplo 00/00/0000'\n ");
     scanf("%d/%d/%d", &novo_no->dados_rota.data.dia, &novo_no->dados_rota.data.mes, &novo_no->dados_rota.data.ano);
-    limpar_buffer();
+    getchar();
 
     printf("Digite o horario da rota: 'Exemplo 00:00'\n ");
     scanf("%d:%d", &novo_no->dados_rota.horario.hora, &novo_no->dados_rota.horario.minuto);
-    limpar_buffer();
+    getchar();
 
     printf("Digite o local de partida da rota:\n ");
     fgets(novo_no->dados_rota.origem, MAX_ROTAS, stdin);
@@ -135,24 +135,24 @@ int cadastrar_rota(NoRota_t **nova_rota, NoAeronave_t *nova_aeronave)
 
     printf("Digite o tempo estimado da rota: 'Exemplo 00:00'\n ");
     scanf("%d:%d", &novo_no->dados_rota.tempo_estimado.hora, &novo_no->dados_rota.tempo_estimado.minuto);
-    limpar_buffer();
+    getchar();
 
     printf("Digite a quantidade de combustivel necessaria:\n ");
     scanf("%f", &novo_no->dados_rota.combustivel_necessario);
-    limpar_buffer();
+    getchar();
 
     printf("Digite a quantidade de passageiros transportados:\n ");
     scanf("%i", &novo_no->dados_rota.qtd_passageiros);
-    limpar_buffer();
+    getchar();
 
     printf("Digite a quantidade de carga transportada:\n ");
     scanf("%i", &novo_no->dados_rota.qtd_carga);
-    limpar_buffer();
+    getchar();
 
     while(id_confirmacao != 1) {
         printf("Digite o ID da aeronave que ira fazer a rota:\n ");
         scanf("%i", &id);
-        limpar_buffer();
+        getchar();
 
         NoAeronave_t *atual_aeronave = nova_aeronave;
         while(atual_aeronave != NULL) {
