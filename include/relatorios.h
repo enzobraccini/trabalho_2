@@ -11,6 +11,7 @@ void listar_aeronave_modelo(NoAeronave_t *nova_aeronave);
 void listar_aeronave_ano_fabricacao(NoAeronave_t *nova_aeronave);
 void listar_aeronave_situacao(NoAeronave_t *nova_aeronave);
 void quantidade_manutencao(NoAeronave_t *nova_aeronave);
+NoAeronave_t *listar_aerorecursiva(char prefixo[MAX_AERONAVES], NoAeronave_t *nova_aeronave);
 
 void consultar_rota_data(NoRota_t *nova_rota);
 void listar_rota_origem(NoRota_t *nova_rota);

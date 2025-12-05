@@ -44,33 +44,6 @@ void liberar_lista_rotas(NoRota_t *nova) {
     }
 }
 
-void mostrar_dados_aeronave(aeronave_t *aviao, FILE *fp)
-{
-    fprintf(fp, "ID....................: %i\n", aviao->id);
-    fprintf(fp, "Modelo................: %s", aviao->modelo);
-    fprintf(fp, "Fabricante............: %s", aviao->fabricante);
-    fprintf(fp, "Prefixo...............: %s", aviao->prefixo);
-    fprintf(fp, "Ano de fabricacao.....: %i\n", aviao->ano_de_fabricacao);
-    fprintf(fp, "Tipo..................: %i\n", aviao->tipo);
-    fprintf(fp, "Numero de passageiros.: %i\n", aviao->numero_passageiros);
-    fprintf(fp, "Situacao..............: %i\n", aviao->situacao);
-}
-
-void mostrar_dados_rota(rota_t *rota, FILE *fp)
-{
-    fprintf(fp, "Codigo..................: %i\n", rota->codigo);
-    fprintf(fp, "Data....................: %i/%i/%i\n", rota->data.dia, rota->data.mes, rota->data.ano);
-    fprintf(fp, "Horario.................: %i:%i\n", rota->horario.hora, rota->horario.minuto);
-    fprintf(fp, "Origem..................: %s", rota->origem);
-    fprintf(fp, "Destino.................: %s", rota->destino);
-    fprintf(fp, "Tempo estimado..........: %i:%i\n", rota->tempo_estimado.hora, rota->tempo_estimado.minuto);
-    fprintf(fp, "Combustivel necessario..: %f\n", rota->combustivel_necessario);
-    fprintf(fp, "Quantidade passageiros..: %i\n", rota->qtd_passageiros);
-    fprintf(fp, "quantidade de carga.....: %i\n", rota->qtd_carga);
-    fprintf(fp, "ID da aeronave..........: %i\n", rota->id_aeronave_voo);
-
-}
-
 void retirar_enter(char *str)
 {
     *(str+strlen(str)-1) = '\0';

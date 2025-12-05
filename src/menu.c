@@ -23,6 +23,7 @@ void exibir_sub_menu_listar_aeronave()
     printf("6 - Listar aeronave por ano de fabricação......:\n");
     printf("7 - Listar aeronave por situação...............:\n");
     printf("8 - Vezes que uma aeronave esteve em manutenção:\n");
+    printf("9 - Listar aeronave por prefixo (Recursiva)....:\n");
 }
 
 void exibir_sub_menu_listar_rota()

@@ -11,6 +11,7 @@ int main()
     NoAeronave_t *nova_aeronave = NULL;
     NoRota_t *nova_rota = NULL;
 
+    char prefixo[MAX_AERONAVES];
     int opcao, sub_opcao;
 
     carregar_dados_aeronave(&nova_aeronave);
@@ -40,6 +41,21 @@ int main()
                         case 6: listar_aeronave_ano_fabricacao(nova_aeronave); break;
                         case 7: listar_aeronave_situacao(nova_aeronave); break;
                         case 8: quantidade_manutencao(nova_aeronave); break;
+                        case 9: printf("Qual o prefixo da aeronave? ");
+                                fgets(prefixo, MAX_AERONAVES, stdin);
+                                retirar_enter(prefixo);
+                                NoAeronave_t *aux = listar_aerorecursiva(prefixo, nova_aeronave);
+                                if (aux) {
+                                    printf("ID....................: %i\n", aux->dados_aeronave.id);
+                                    printf("Modelo................: %s\n", aux->dados_aeronave.modelo);
+                                    printf("Fabricante............: %s\n", aux->dados_aeronave.fabricante);
+                                    printf("Prefixo...............: %s\n", aux->dados_aeronave.prefixo);
+                                    printf("Ano de fabricacao.....: %i\n", aux->dados_aeronave.ano_de_fabricacao);
+                                } else {
+                                    printf("Aeronave com prefixo %s, não foi encontrada\n", prefixo);
+                                }
+                                break;
+
                         case 0: break;
                         default: printf("Opcao invalida!\n");
                     }

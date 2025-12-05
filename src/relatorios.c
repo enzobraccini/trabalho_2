@@ -270,6 +270,17 @@ void quantidade_manutencao(NoAeronave_t *nova_aeronave)
     }
 }
 
+NoAeronave_t *listar_aerorecursiva(char prefixo[MAX_AERONAVES], NoAeronave_t *nova_aeronave)
+{
+    if (nova_aeronave == NULL) return NULL;
+
+    if (strcmp(nova_aeronave->dados_aeronave.prefixo, prefixo) == 0) return nova_aeronave;
+
+    return listar_aerorecursiva(prefixo, nova_aeronave->proximo);
+}
+
+
+
 
 
 
