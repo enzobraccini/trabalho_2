@@ -149,7 +149,7 @@ int cadastrar_rota(NoRota_t **nova_rota, NoAeronave_t *nova_aeronave)
     scanf("%i", &novo_no->dados_rota.qtd_carga);
     getchar();
 
-    while(id_confirmacao != 1) {
+    while(id_confirmacao != 2) {
         printf("Digite o ID da aeronave que ira fazer a rota:\n ");
         scanf("%i", &id);
         getchar();
@@ -157,15 +157,22 @@ int cadastrar_rota(NoRota_t **nova_rota, NoAeronave_t *nova_aeronave)
         NoAeronave_t *atual_aeronave = nova_aeronave;
         while(atual_aeronave != NULL) {
             if(id == atual_aeronave->dados_aeronave.id) {
-                novo_no->dados_rota.id_aeronave_voo = id;
-                id_confirmacao = 1;
-                break;
+                if(atual_aeronave->dados_aeronave.situacao == 2) {
+                    id_confirmacao = 1;
+                } else {
+                    novo_no->dados_rota.id_aeronave_voo = id;
+                    id_confirmacao = 2;
+                    break;
+                }
             }
             atual_aeronave = atual_aeronave->proximo;
         }
 
-        if (!id_confirmacao) {
+        if (id_confirmacao == 0) {
             printf("ID da aeronave nao encontrado. Tente novamente.\n");
+        }
+        if (id_confirmacao == 1) {
+            printf("Esta aeronave esta em manutencao!!\n");
         }
     }
 
