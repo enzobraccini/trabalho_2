@@ -184,7 +184,7 @@ void exportar_dados_rota_csv(NoRota_t *rota, char *nome_arq)
         return;
     }
 
-    fprintf(fp, "ID;ORIGEM;DESTINO;DATA;PASSAGEIROS;COMBUSTIVEL;AERONAVE\n");
+    fprintf(fp, "ID;ORIGEM;DESTINO;COMBUSTIVEL;PASSAGEIROS;CARGA;AERONAVE\n");
 
     while (rota) {
         fprintf(fp, "%d;%s;%s;%f;%d;%d;%d\n",
@@ -216,8 +216,8 @@ void exportar_dados_rota_html(NoRota_t *rota, char *nome_arq)
 
     fprintf(fp,
         "<tr>"
-        "<th>ID</th><th>Origem</th><th>Destino</th><th>Data</th>"
-        "<th>Passageiros</th><th>Combustível</th><th>Aeronave</th>"
+        "<th>ID</th><th>Origem</th><th>Destino</th><th>Combustivel</th>"
+        "<th>Passageiros</th><th>Carga</th><th>Aeronave</th>"
         "</tr>\n"
     );
 

@@ -20,6 +20,7 @@ int main()
     do {
         exibir_menu();
         scanf("%d", &opcao);
+        getchar();
 
         switch(opcao)
         {
@@ -30,6 +31,7 @@ int main()
                     printf("0 - Voltar\n");
                     printf("Escolha uma opcao: ");
                     scanf("%d", &sub_opcao);
+                    getchar();
 
                     switch(sub_opcao)
                     {
@@ -72,6 +74,7 @@ int main()
                     printf("0 - Voltar\n");
                     printf("Escolha uma opcao: ");
                     scanf("%d", &sub_opcao);
+                    getchar();
 
                     switch(sub_opcao)
                     {
@@ -97,6 +100,7 @@ int main()
                 do {
                     exibir_sub_menu_exportar();
                     scanf("%d", &sub_opcao);
+                    getchar();
 
                     switch(sub_opcao)
                     {

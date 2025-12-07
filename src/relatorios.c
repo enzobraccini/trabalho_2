@@ -59,8 +59,8 @@ void buscar_aeronave_prefixo(NoAeronave_t *nova_aeronave)
     NoAeronave_t *atual = nova_aeronave;
 
     printf("Digite o prefixo da aeronave: ");
-    getchar();
     fgets(prefixo_busca, MAX_AERONAVES, stdin);
+    retirar_enter(prefixo_busca);
 
     while (atual != NULL) {
         if (strcmp(prefixo_busca, atual->dados_aeronave.prefixo) == 0) {
@@ -86,8 +86,8 @@ void listar_aeronave_fabricante(NoAeronave_t *nova_aeronave)
     NoAeronave_t *atual = nova_aeronave;
 
     printf("Digite o fabricante:\n ");
-    getchar();
     fgets(fabricante_busca, MAX_AERONAVES, stdin);
+    retirar_enter(fabricante_busca);
 
     printf("\n--- AERONAVES DO FABRICANTE %s\n ---\n", fabricante_busca);
 
@@ -155,8 +155,8 @@ void listar_aeronave_modelo(NoAeronave_t *nova_aeronave)
     int encontrada = 0;
 
     printf("Digite um modelo: ");
-    getchar();
     fgets(modelo_busca, MAX_AERONAVES, stdin);
+    retirar_enter(modelo_busca);
 
     printf("\n--- AERONAVES DO MODELO %s\n ---\n", modelo_busca);
 
@@ -183,9 +183,7 @@ void listar_aeronave_ano_fabricacao(NoAeronave_t *nova_aeronave)
 
     printf("Digite um ano: ");
     scanf("%i", &ano_busca);
-    if (ano_busca != 1) {
-        return;
-    }
+    getchar();
 
     printf("\n--- AERONAVES FABRICADAS EM %d ---\n", ano_busca);
 
@@ -255,6 +253,7 @@ void quantidade_manutencao(NoAeronave_t *nova_aeronave)
 
     printf("Digite o ID da aeronave: ");
     scanf("%d", &id_busca);
+    getchar();
 
     while (atual != NULL) {
         if (id_busca == atual->dados_aeronave.id) {
@@ -292,10 +291,13 @@ void consultar_rota_data(NoRota_t *nova_rota)
 
     printf("Digite o dia: \n");
     scanf("%i", &dia);
+    getchar();
     printf("Digite o mes: \n");
     scanf("%i", &mes);
+    getchar();
     printf("Digite o ano: \n");
     scanf("%i", &ano);
+    getchar();
 
     printf("\n ROTAS NA DATA %d/%d/%d ---\n", dia, mes, ano);
 
@@ -327,8 +329,8 @@ void listar_rota_origem(NoRota_t *nova_rota)
     int encontrada = 0;
 
     printf("Digite a origem: \n");
-    getchar();
     fgets(rota_origem, MAX_ROTAS, stdin);
+    retirar_enter(rota_origem);
 
     printf("\nROTAS COM ORIGEM EM %s \n\n", rota_origem);
 
@@ -357,8 +359,8 @@ void listar_rota_destino(NoRota_t *nova_rota)
     int encontrada = 0;
 
     printf("Digite o destino: \n");
-    getchar();
     fgets(destino_busca, MAX_ROTAS, stdin);
+    retirar_enter(destino_busca);
 
     printf("\n--- ROTAS COM DESTINO EM %s ---\n", destino_busca);
 
@@ -395,6 +397,7 @@ void porcentagem_voo_aeronave(NoRota_t *nova_rota)
 
     printf("Digite o ID da aeronave para calcular a porcentagem de voos: ");
     scanf("%d", &id_busca);
+    getchar();
 
     while (atual != NULL) {
         if (atual->dados_rota.id_aeronave_voo == id_busca) {
@@ -425,9 +428,11 @@ void porcentagem_voos_intervalo(NoRota_t *nova_rota)
 
     printf("Digite a data de inicio do intervalo (dd/mm/aaaa): \n");
     scanf("%d/%d/%d", &inicio.dia, &inicio.mes, &inicio.ano);
+    getchar();
 
     printf("Digite a data de fim do intervalo (dd/mm/aaaa): \n");
     scanf("%d/%d/%d", &fim.dia, &fim.mes, &fim.ano);
+    getchar();
 
     printf("\n--- PORCENTAGEM DE VOOS NO INTERVALO %d/%d/%d a %d/%d/%d ---\n", inicio.dia, inicio.mes, inicio.ano, fim.dia, fim.mes, fim.ano);
 
@@ -466,9 +471,11 @@ void consumo_combustivel_intervalo(NoRota_t *nova_rota)
 
     printf("Digite a data de inicio do intervalo (dd/mm/aaaa): \n");
     scanf("%d/%d/%d", &inicio.dia, &inicio.mes, &inicio.ano);
+    getchar();
 
     printf("Digite a data de fim do intervalo (dd/mm/aaaa): \n");
     scanf("%d/%d/%d", &fim.dia, &fim.mes, &fim.ano);
+    getchar();
 
     printf("\n--- CONSUMO DE COMBUSTÍVEL NO INTERVALO %d/%d/%d a %d/%d/%d ---\n", inicio.dia, inicio.mes, inicio.ano, fim.dia, fim.mes, fim.ano);
 
